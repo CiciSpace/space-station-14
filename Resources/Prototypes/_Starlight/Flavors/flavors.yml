@@ -54,6 +54,11 @@
   description: flavor-complex-the-last-call
 
 - type: flavor
+  id: placeholderdrink
+  flavorType: Complex
+  description: flavor-complex-placeholder
+
+- type: flavor
   id: perfid
   flavorType: Base
   description: flavor-base-perfid

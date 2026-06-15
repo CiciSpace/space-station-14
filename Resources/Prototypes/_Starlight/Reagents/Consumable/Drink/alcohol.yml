@@ -181,3 +181,26 @@
         damage:
           types:
             Poison: 0.02
+
+- type: reagent
+  id: PlaceholderDrink
+  name: reagent-name-placeholder
+  parent: BaseAlcohol
+  desc: reagent-desc-placeholder
+  physicalDesc: reagent-physical-desc-unidentifiable
+  flavor: placeholderdrink
+  color: "#686c73"
+  metamorphicSprite:
+    sprite: _Starlight/Objects/Consumable/Drinks/placeholderdrink.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+        - !type:SatiateThirst
+          factor: 2
+        - !type:AdjustReagent
+          reagent: Ethanol
+          amount: 0.15

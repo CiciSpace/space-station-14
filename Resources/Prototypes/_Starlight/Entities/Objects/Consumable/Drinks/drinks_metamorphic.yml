@@ -17,6 +17,23 @@
     sprite: _Starlight/Objects/Consumable/Drinks/thelastcall.rsi
     state: icon
 
+- type: entity
+  parent: DrinkGlass
+  id: DrinkPlaceholderGlass
+  suffix: placeholder drink
+  description: Highly carbonated flavor text.
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: PlaceholderDrink
+              Quantity: 30
+    - type: Icon
+      sprite: _Starlight/Objects/Consumable/Drinks/placeholderdrink.rsi
+      state: icon
+
 # this drink was missing, so now it is not missing
 - type: entity
   parent: DrinkGlass

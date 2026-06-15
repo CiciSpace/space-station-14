@@ -6,3 +6,5 @@ reagent-name-highlander = The Highlander
 reagent-desc-highlander = There can be only one. A dwarf who drinks this brew will remain steadfast until the moment before death.
 reagent-name-the-last-call = The Last Call
 reagent-desc-the-last-call = There are no good or bad choices. Only consequences.
+reagent-name-placeholder = Placeholder Drink
+reagent-desc-placeholder = Odd. It could be anything, and yet it isn't even something.

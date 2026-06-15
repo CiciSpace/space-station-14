@@ -10,4 +10,5 @@ flavor-base-greasy = greasy
 flavor-base-festive = festive
 flavor-complex-highlander = like THERE CAN BE ONLY ONE
 flavor-complex-the-last-call = like death's cold embrace
+flavor-complex-placeholder = like something that should not be left in the files
 flavor-base-perfid = perfid

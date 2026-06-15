@@ -45,3 +45,15 @@
       amount: 2
   products:
     TheLastCall: 6
+
+- type: reaction
+  id: PlaceholderDrink
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    WhiteRussian:
+      amount: 1
+    BlackRussian:
+      amount: 2
+  products:
+    PlaceholderDrink: 4
