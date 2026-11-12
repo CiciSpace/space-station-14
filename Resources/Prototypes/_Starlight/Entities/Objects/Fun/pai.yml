@@ -1,5 +1,18 @@
 - type: entity
   parent: BaseMentalAction
+  id: ActionPAIOpenConfigure
+  name: Configure
+  description: Change your holoform and install new software.
+  components:
+    - type: Action
+      icon: Interface/Actions/pai-midi.png
+      itemIconStyle: NoItem
+    - type: InstantAction
+      event: !type:OpenUiActionEvent
+        key: enum.PAIConfigureUiKey.Key
+
+- type: entity
+  parent: BaseMentalAction
   id: ActionPAIPDA
   name: Open PDA
   description: Opens the PDA UI if you are in one.

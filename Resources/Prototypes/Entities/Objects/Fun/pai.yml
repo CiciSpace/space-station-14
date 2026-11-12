@@ -13,6 +13,9 @@
     bank: 100 # Defined in space-station-14.sf2
   - type: UserInterface
     interfaces:
+      enum.PAIConfigureUiKey.Key:
+        type: PAIConfigureBoundUserInterface
+        requireInputValidation: false
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
         requireInputValidation: false
