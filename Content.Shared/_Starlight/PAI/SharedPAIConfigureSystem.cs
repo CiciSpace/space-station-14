@@ -7,3 +7,10 @@ public enum PAIConfigureUiKey : byte
 {
     Key,
 }
+
+[Serializable, NetSerializable]
+public sealed class PAIRenameBuiMessage(string name) : BoundUserInterfaceMessage
+{
+    public string Name = name;
+}
+

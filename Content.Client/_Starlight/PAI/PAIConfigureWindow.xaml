@@ -30,7 +30,7 @@
                                    HorizontalAlignment="Center"
                                    Text="Owner Name"/>
                     <PanelContainer StyleClasses="LowDivider"/>
-                    <SpriteView Name="SpriteView"
+                    <SpriteView Name="DeviceSprite"
                                 Access="Public"
                                 OverrideDirection="South"
                                 Scale="4 4"
@@ -38,8 +38,8 @@
                     <PanelContainer StyleClasses="LowDivider"/>
                     <Control Margin="5"/>
                     <BoxContainer> <!-- the rename field -->
-                        <LineEdit HorizontalExpand="True"></LineEdit>
-                        <Button Text="Rename"></Button>
+                        <LineEdit Name="RenameLineEdit" HorizontalExpand="True"></LineEdit>
+                        <Button Name="RenameButton" Text="Rename"></Button>
                     </BoxContainer>
                     <BoxContainer>
                         <RichTextLabel Text="Voice:" HorizontalExpand="True"></RichTextLabel>

@@ -1,4 +1,5 @@
-﻿using Robust.Client.UserInterface;
+﻿using Content.Shared._Starlight.PAI;
+using Robust.Client.UserInterface;
 
 namespace Content.Client._Starlight.PAI;
 
@@ -17,5 +18,12 @@ public sealed class PAIConfigureBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<PAIConfigureWindow>();
         _window.Open();
+
+        _window.SetEntity(Owner);
+
+        _window.RenameButtonPressed += name =>
+        {
+            SendMessage(new PAIRenameBuiMessage(name));
+        };
     }
 }
