@@ -87,10 +87,15 @@ public sealed partial class PAIConfigureWindow : FancyWindow
 
         if (_entManager.TryGetComponent<TextToSpeechComponent>(_entity, out var textToSpeechComponent))
         {
-            if (_protoManager.TryIndex<VoicePrototype>(textToSpeechComponent.VoicePrototypeId, out var voice))
-                VoicePrototypeLabel.Text = "Voice: " + Loc.GetString(voice.Name);
+            if (textToSpeechComponent.VoicePrototypeId is not null)
+            {
+                _protoManager.TryIndex(textToSpeechComponent.VoicePrototypeId, out VoicePrototype? voice);
+                if (voice != null) VoicePrototypeLabel.Text = "Voice: " + Loc.GetString(voice.Name);
+            }
             else
+            {
                 VoicePrototypeLabel.Text = "Voice: Random";
+            }
         }
         else
         {

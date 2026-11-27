@@ -6,12 +6,14 @@ using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.PAI;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Starlight.PAI;
 
 public sealed partial class PAIConfigureSystem : EntitySystem
 {
     [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private IConfigurationManager _cfgManager = default!;
     [Dependency] private TTSSystem _tts = default!;
@@ -56,7 +58,12 @@ public sealed partial class PAIConfigureSystem : EntitySystem
     {
         if (TryComp<TextToSpeechComponent>(ent, out var textToSpeechComponent))
         {
-            textToSpeechComponent.VoicePrototypeId = args.Voice;
+            _protoManager.TryIndex(args.VoiceId, out VoicePrototype? voice);
+            if (voice != null)
+            {
+                textToSpeechComponent.VoicePrototypeId = voice;
+                Dirty(ent, textToSpeechComponent);
+            }
         }
     }
 }

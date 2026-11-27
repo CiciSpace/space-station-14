@@ -14,8 +14,8 @@ public sealed class PAIRenameBuiMessage(string name) : BoundUserInterfaceMessage
 {
     public string Name = name;
 }
-
-public sealed class PAISelectVoiceBuiMessage(VoicePrototype voice) : BoundUserInterfaceMessage
+[Serializable, NetSerializable]
+public sealed class PAISelectVoiceBuiMessage(string voiceId) : BoundUserInterfaceMessage
 {
-    public VoicePrototype Voice = voice;
+    public string VoiceId = voiceId;
 }

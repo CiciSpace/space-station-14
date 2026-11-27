@@ -28,7 +28,7 @@ public sealed class PAIConfigureBoundUserInterface : BoundUserInterface
 
         _window.SelectedVoice += voice =>
         {
-            SendMessage(new PAISelectVoiceBuiMessage(voice));
+            SendMessage(new PAISelectVoiceBuiMessage(voice.ID));
         };
     }
 }
