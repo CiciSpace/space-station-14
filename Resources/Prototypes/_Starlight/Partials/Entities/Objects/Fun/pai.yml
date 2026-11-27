@@ -21,8 +21,6 @@
   - type: ActionGrant
     actions:
     - !Index:1 ActionPAIOpenConfigure
-    - !Index:2 ActionPAIPDA # pAI can open PDAs, see PR #3272
-    - !Index:3 ActionPAIConsole # pAI can open consoles
   - type: RemoteControlConsole
     enableRemoteView: false
     ownerOnly: true

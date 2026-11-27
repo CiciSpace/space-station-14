@@ -1,5 +1,7 @@
-﻿using Content.Server.Administration.Logs;
+﻿using Content.Server._Starlight.TextToSpeech;
+using Content.Server.Administration.Logs;
 using Content.Shared._Starlight.PAI;
+using Content.Shared._Starlight.TextToSpeech;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.PAI;
@@ -12,6 +14,7 @@ public sealed partial class PAIConfigureSystem : EntitySystem
     [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private IAdminLogManager _adminLog = default!;
     [Dependency] private IConfigurationManager _cfgManager = default!;
+    [Dependency] private TTSSystem _tts = default!;
 
     private int _maxNameLength;
     public override void Initialize()
@@ -21,6 +24,7 @@ public sealed partial class PAIConfigureSystem : EntitySystem
         {
             subs.Event<BoundUIOpenedEvent>(OnConfigureUIOpened);
             subs.Event<PAIRenameBuiMessage>(OnSetNameBuiMessage);
+            subs.Event<PAISelectVoiceBuiMessage>(OnSetVoiceBuiMessage);
         });
 
         Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
@@ -47,5 +51,12 @@ public sealed partial class PAIConfigureSystem : EntitySystem
 
         _adminLog.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):player} set their pAI name to: {name}");
         _metaData.SetEntityName(ent, name, metaData, false);
+    }
+    private void OnSetVoiceBuiMessage(Entity<PAIComponent> ent, ref PAISelectVoiceBuiMessage args)
+    {
+        if (TryComp<TextToSpeechComponent>(ent, out var textToSpeechComponent))
+        {
+            textToSpeechComponent.VoicePrototypeId = args.Voice;
+        }
     }
 }

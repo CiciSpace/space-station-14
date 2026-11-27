@@ -39,11 +39,12 @@
                     <Control Margin="5"/>
                     <BoxContainer> <!-- the rename field -->
                         <LineEdit Name="RenameLineEdit" HorizontalExpand="True"></LineEdit>
-                        <Button Name="RenameButton" Text="Rename"></Button>
+                        <Button Name="RenameButton" Text="Rename" MinWidth="100"></Button>
                     </BoxContainer>
-                    <BoxContainer>
-                        <RichTextLabel Text="Voice:" HorizontalExpand="True"></RichTextLabel>
-                        <OptionButton MinWidth="300"></OptionButton>
+                    <BoxContainer> <!-- the voice selector field -->
+                        <RichTextLabel Name="VoicePrototypeLabel" HorizontalExpand="True" Text="VoicePrototype"></RichTextLabel>
+                        <Button Name="VoiceSelectButton" Text="Select" MinWidth="100"></Button>
+                        <!-- <OptionButton MinWidth="30"></OptionButton> -->
                     </BoxContainer>
                     <BoxContainer>
                         <ColorSelectorSliders HorizontalExpand="True"></ColorSelectorSliders>
@@ -55,44 +56,15 @@
             <PanelContainer StyleClasses="LowDivider" Margin="20"/>
             <!-- objectives list -->
             <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                <RichTextLabel Text="{Loc 'character-info-objectives-header'}"/>
+                <RichTextLabel Text="Directives: "/>
                 <PanelContainer StyleClasses="PanelDark"
                                 Margin="0 0 10 0"
                                 MinWidth="220"
                                 HorizontalExpand="True"
                                 VerticalExpand="True">
-                    <ScrollContainer Name="ObjectivesScroll"
-                                     Access="Public"
-                                     HScrollEnabled="False"
-                                     MinWidth="270"
-                                     VerticalExpand="True">
-                        <BoxContainer Name="ObjectivesWrapper"
-                                      Access="Public"
-                                      Orientation="Vertical">
-                            <Button Name="ObjectiveButton"
-                                    StyleClasses="OpenBoth"
-                                    Margin="2 2 2 0"
-                                    VerticalExpand="False"
-                                    VerticalAlignment="Top"/>
-                            <Button Name="CardsButton"
-                                    Access="Public"
-                                    StyleClasses="OpenBoth"
-                                    Text="{Loc 'character-info-cards-button'}"
-                                    Margin="2 2 2 0"/>
-                            <Label Name="NoObjectivesLabel"
-                                   Text="{Loc 'character-info-no-objectives'}"
-                                   StyleClasses="LabelSubText"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   VerticalExpand="False"/>
-                            <BoxContainer Name="Objectives"
-                                          Access="Public"
-                                          Orientation="Vertical"
-                                          Margin="0 2 0 0"
-                                          SeparationOverride="2"/>
-                        </BoxContainer>
-                    </ScrollContainer>
+                    <BoxContainer Name="VoicePickerSlot" Orientation="Vertical" VerticalExpand="True"/>
                 </PanelContainer>
+
             </BoxContainer>
 
         </BoxContainer>

@@ -1,16 +1,11 @@
-﻿using Robust.Shared.Serialization;
+﻿namespace Content.Shared._Starlight.PAI;
+using Content.Shared._Starlight.TextToSpeech;
+using Content.Shared.PAI;
+using Robust.Shared.Configuration;
 
-namespace Content.Shared._Starlight.PAI;
 
-[Serializable, NetSerializable]
-public enum PAIConfigureUiKey : byte
+
+public abstract partial class SharedPAIConfigureSystem : EntitySystem
 {
-    Key,
-}
 
-[Serializable, NetSerializable]
-public sealed class PAIRenameBuiMessage(string name) : BoundUserInterfaceMessage
-{
-    public string Name = name;
 }
-
