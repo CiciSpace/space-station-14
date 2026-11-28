@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Starlight.PAI;
 
-public sealed partial class PAIConfigureSystem : EntitySystem
+public sealed partial class PAIConfigureSystem : SharedPAIConfigureSystem
 {
     [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
@@ -22,6 +22,8 @@ public sealed partial class PAIConfigureSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+
         Subs.BuiEvents<PAIComponent>(PAIConfigureUiKey.Key, subs =>
         {
             subs.Event<BoundUIOpenedEvent>(OnConfigureUIOpened);
@@ -30,6 +32,7 @@ public sealed partial class PAIConfigureSystem : EntitySystem
         });
 
         Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
+
     }
 
     private void OnConfigureUIOpened(EntityUid uid, PAIComponent component, BoundUIOpenedEvent args)

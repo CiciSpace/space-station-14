@@ -19,3 +19,9 @@ public sealed class PAISelectVoiceBuiMessage(string voiceId) : BoundUserInterfac
 {
     public string VoiceId = voiceId;
 }
+
+[Serializable, NetSerializable]
+public sealed class PAISelectColorBuiMessage(Color color) : BoundUserInterfaceMessage
+{
+    public Color Color = color;
+}

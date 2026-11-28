@@ -44,10 +44,9 @@
                     <BoxContainer> <!-- the voice selector field -->
                         <RichTextLabel Name="VoicePrototypeLabel" HorizontalExpand="True" Text="VoicePrototype"></RichTextLabel>
                         <Button Name="VoiceSelectButton" Text="Select" MinWidth="100"></Button>
-                        <!-- <OptionButton MinWidth="30"></OptionButton> -->
                     </BoxContainer>
                     <BoxContainer>
-                        <ColorSelectorSliders HorizontalExpand="True"></ColorSelectorSliders>
+                        <ColorSelectorSliders Name="ColorSelector" HorizontalExpand="True"></ColorSelectorSliders>
                     </BoxContainer>
 
                 </BoxContainer>

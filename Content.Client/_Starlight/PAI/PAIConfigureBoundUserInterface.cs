@@ -30,6 +30,11 @@ public sealed class PAIConfigureBoundUserInterface : BoundUserInterface
         {
             SendMessage(new PAISelectVoiceBuiMessage(voice.ID));
         };
+
+        _window.SelectedColor += color =>
+        {
+            SendPredictedMessage(new PAISelectColorBuiMessage(color));
+        };
     }
 
     protected override void Dispose(bool disposing)

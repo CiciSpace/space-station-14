@@ -29,6 +29,9 @@
     ports: [ RemoteControl ]
   - type: UserInterface
     interfaces:
+      enum.PAIConfigureUiKey.Key:
+        type: PAIConfigureBoundUserInterface
+        requireInputValidation: false
       enum.RemoteControlSettingsUIKey.Key:
         type: RemoteControlSettingsBoundUserInterface
         requireInputValidation: false

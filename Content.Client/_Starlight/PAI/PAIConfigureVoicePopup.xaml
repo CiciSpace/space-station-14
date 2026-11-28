@@ -11,7 +11,7 @@
                       SetHeight="700"
                       >
     <PanelContainer StyleClasses="PanelDark"
-                    Margin="0 0 10 10"
+                    Margin="10 0 10 10"
                     HorizontalExpand="True"
                     VerticalExpand="True">
         <BoxContainer Name="VoicePickerSlot" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True"/>

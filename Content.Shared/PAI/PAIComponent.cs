@@ -13,6 +13,7 @@ namespace Content.Shared.PAI;
 /// All logic in PAISystem.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState(true)]
 public sealed partial class PAIComponent : Component
 {
     /// <summary>
