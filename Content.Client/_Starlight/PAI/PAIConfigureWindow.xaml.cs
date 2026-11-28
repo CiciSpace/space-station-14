@@ -32,8 +32,7 @@ public sealed partial class PAIConfigureWindow : FancyWindow
     private readonly int _maxNameLength;
     private EntityUid _entity;
 
-    private List<VoicePrototype> _siliconVoices = [];
-    private VoicePicker _siliconVoicePicker = default!;
+    public readonly PAIConfigureVoicePopup voicePopup;
 
     public PAIConfigureWindow()
     {
@@ -53,18 +52,14 @@ public sealed partial class PAIConfigureWindow : FancyWindow
 
         RenameLineEdit.OnTextChanged += OnNameChanged;
 
-        _siliconVoices =
-        [
-            .. _protoManager
-            .EnumeratePrototypes<VoicePrototype>()
-            .Where(voice => voice.Silicon)
-        ];
-        _siliconVoicePicker = new VoicePicker(_siliconVoices, _protoManager) { Visible = true };
-        _siliconVoicePicker.OnVoiceSelected += OnVoiceChanged;
-        _siliconVoicePicker.OnVoiceSelected += voice => SelectedVoice?.Invoke(voice);
-        _siliconVoicePicker.OnPreviewRequested += voice => _tts.RequestPreviewTts(voice.ID);
 
-        VoicePickerSlot.AddChild(_siliconVoicePicker);
+        voicePopup = new();
+        voicePopup.SelectedVoice += OnVoiceChanged;
+
+        VoiceSelectButton.OnPressed += _ =>
+        {
+            voicePopup.OpenCentered();
+        };
     }
 
     public void SetEntity(EntityUid entity)
@@ -91,6 +86,7 @@ public sealed partial class PAIConfigureWindow : FancyWindow
             {
                 _protoManager.TryIndex(textToSpeechComponent.VoicePrototypeId, out VoicePrototype? voice);
                 if (voice != null) VoicePrototypeLabel.Text = "Voice: " + Loc.GetString(voice.Name);
+                if (voice != null) voicePopup.SelectHighlightedVoice(voice);
             }
             else
             {
@@ -121,6 +117,7 @@ public sealed partial class PAIConfigureWindow : FancyWindow
     private void OnVoiceChanged(VoicePrototype voice)
     {
         VoicePrototypeLabel.Text = "Voice: " + Loc.GetString(voice.Name);
+        SelectedVoice?.Invoke(voice);
     }
 }
 

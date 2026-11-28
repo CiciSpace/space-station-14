@@ -62,7 +62,6 @@
                                 MinWidth="220"
                                 HorizontalExpand="True"
                                 VerticalExpand="True">
-                    <BoxContainer Name="VoicePickerSlot" Orientation="Vertical" VerticalExpand="True"/>
                 </PanelContainer>
 
             </BoxContainer>

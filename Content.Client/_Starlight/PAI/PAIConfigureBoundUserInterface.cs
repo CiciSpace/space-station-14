@@ -31,4 +31,11 @@ public sealed class PAIConfigureBoundUserInterface : BoundUserInterface
             SendMessage(new PAISelectVoiceBuiMessage(voice.ID));
         };
     }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (_window != null && _window.voicePopup!= null) _window.voicePopup.Close();
+        if (disposing == false) return;
+        base.Dispose(disposing);
+    }
 }

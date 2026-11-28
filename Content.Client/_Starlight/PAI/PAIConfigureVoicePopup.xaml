@@ -1,0 +1,19 @@
+﻿<windows:PAIConfigureVoicePopup
+                      xmlns="https://spacestation14.io"
+                      xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:sl="clr-namespace:Content.Client._Starlight.Character.Info.UI"
+                      xmlns:windows="clr-namespace:Content.Client._Starlight.PAI"
+                      Title="Set Silicon Voice"
+                      MinWidth="500"
+                      MinHeight="170"
+                      SetHeight="700"
+                      >
+    <PanelContainer StyleClasses="PanelDark"
+                    Margin="0 0 10 10"
+                    HorizontalExpand="True"
+                    VerticalExpand="True">
+        <BoxContainer Name="VoicePickerSlot" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True"/>
+    </PanelContainer>
+</windows:PAIConfigureVoicePopup>
